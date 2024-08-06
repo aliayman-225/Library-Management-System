@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Library Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+A simple Library Management System API built using Spring Boot.
 
-## Available Scripts
+## Requirements
+- Java 11 or higher
+- Maven
 
-In the project directory, you can run:
+## Setup
+1. Clone the repository:
+    ```sh
+    git clone <repository-url>
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd library-management-system
+    ```
+3. Build the project:
+    ```sh
+    mvn clean install
+    ```
+4. Run the application:
+    ```sh
+    mvn spring-boot:run
+    ```
 
-### `npm start`
+## API Endpoints
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Book Management
+- `GET /api/books` - Retrieve a list of all books.
+- `GET /api/books/{id}` - Retrieve details of a specific book by ID.
+- `POST /api/books` - Add a new book to the library.
+- `PUT /api/books/{id}` - Update an existing book's information.
+- `DELETE /api/books/{id}` - Remove a book from the library.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Patron Management
+- `GET /api/patrons` - Retrieve a list of all patrons.
+- `GET /api/patrons/{id}` - Retrieve details of a specific patron by ID.
+- `POST /api/patrons` - Add a new patron to the system.
+- `PUT /api/patrons/{id}` - Update an existing patron's information.
+- `DELETE /api/patrons/{id}` - Remove a patron from the system.
 
-### `npm test`
+### Borrowing Management
+- `POST /api/borrow/{bookId}/patron/{patronId}` - Allow a patron to borrow a book.
+- `PUT /api/return/{bookId}/patron/{patronId}` - Record the return of a borrowed book by a patron.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Testing
+To run the tests:
+```sh
+mvn test
