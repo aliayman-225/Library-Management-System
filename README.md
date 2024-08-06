@@ -4,13 +4,19 @@
 A simple Library Management System API built using Spring Boot.
 
 ## Requirements
-- Java 11 or higher
+- Java 17 or higher
 - Maven
+
+1. Commands For Linux:
+    ```sh
+    sudo apt install openjdk-17-jdk
+    sudo apt install maven
+    ```
 
 ## Setup
 1. Clone the repository:
     ```sh
-    git clone <repository-url>
+    git clone https://github.com/aliayman-225/Library-Management-System
     ```
 2. Navigate to the project directory:
     ```sh
