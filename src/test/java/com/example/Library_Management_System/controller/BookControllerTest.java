@@ -17,9 +17,6 @@ import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -98,10 +95,30 @@ public class BookControllerTest {
     }
 
     @Test
+    public void testUpdateBookNotFound() throws Exception {
+        when(bookService.updateBook(anyLong(), any(Book.class))).thenThrow(new RuntimeException("Book not found with id 1"));
+
+        mockMvc.perform(put("/api/books/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"title\":\"Updated Book\",\"author\":\"Updated Author\",\"publicationYear\":2021,\"isbn\":\"0987654321\"}"))
+                .andExpect(status().isNotFound());
+
+        verify(bookService, times(1)).updateBook(anyLong(), any(Book.class));
+    }
+
+    @Test
     void testDeleteBook() throws Exception {
         mockMvc.perform(delete("/api/books/1"))
                 .andExpect(status().isNoContent());
     }
 
+    @Test
+    public void testDeleteBookNotFound() throws Exception {
+        doThrow(new RuntimeException("Book not found with id 1")).when(bookService).deleteBook(anyLong());
 
+        mockMvc.perform(delete("/api/books/1"))
+                .andExpect(status().isNotFound());
+
+        verify(bookService, times(1)).deleteBook(1L);
+    }
 }
