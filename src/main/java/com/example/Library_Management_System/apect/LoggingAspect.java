@@ -55,7 +55,7 @@ public class LoggingAspect {
                     joinPoint.getTarget().getClass().getSimpleName(),
                     elapsedTime,
                     ex.getMessage(), ex);
-            throw ex; // rethrow the exception after logging
+            throw ex;
         }
     }
 }

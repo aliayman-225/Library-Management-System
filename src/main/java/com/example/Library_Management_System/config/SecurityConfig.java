@@ -29,7 +29,7 @@ public class SecurityConfig {
                                 .requestMatchers("/api/return/**").hasAnyRole("ADMIN", "USER")
                                 .anyRequest().authenticated()
                 )
-                .httpBasic(withDefaults()) // Use withDefaults() for HttpBasicConfigurer
+                .httpBasic(withDefaults())
                 .csrf(csrf -> csrf.disable());
         return http.build();
     }

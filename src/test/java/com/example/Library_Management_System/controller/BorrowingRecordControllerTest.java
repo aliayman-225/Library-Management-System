@@ -1,9 +1,8 @@
 package com.example.Library_Management_System.controller;
 
-
 import com.example.Library_Management_System.entity.BorrowingRecord;
 import com.example.Library_Management_System.service.BorrowingRecordService;
-import com.example.Library_Management_System.exception.*;
+import com.example.Library_Management_System.exception.GlobalExceptionHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -31,7 +30,7 @@ public class BorrowingRecordControllerTest {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);
+        MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(borrowingRecordController)
                 .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
